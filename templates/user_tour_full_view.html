@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ tours.title }}</title>
+</head>
+<body>
+    <p>full details</p>
+    <h1>{{ tours.title }}</h1>
+    <p>Category: {{ tours.category }}</p>
+    <p>Keyword: {{ tours.keyword }}</p>
+    <p>Description: {{ tours.description }}</p>
+    <p>Day 1: {{ tours.day1 }}</p>
+    <p>Day 2: {{ tours.day2 }}</p>
+    <p>Day 3: {{ tours.day3 }}</p>
+    <p>Location: {{ tours.location }}</p>
+    <p>Checkboxes: {{ tours.checkboxes }}</p>
+    <p>Price: {{ tours.price }}</p>
+    <p>Date: {{ tours.date }}</p>
+    <p>Time: {{ tours.time }}</p>
+
+    <h2>Photos:</h2>
+    <ul>
+        {% for photo in tours.photos.all %}
+            <li><img src="{{ photo.photo.url }}" alt="Photo" width="200px"></li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'user_tour_list' %}">Back to Tour List</a>
+</body>
+</html>

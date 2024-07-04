@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    
+    <link rel="stylesheet" href="{% static 'css/admincss/innerpeace_signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admincss/bootstrap.min.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    {% comment %} <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+    {% block content %}
+    <section class="head-sec">
+        <nav class="navbar navbar-expand-lg navbar-light  px-4 py-3">
+            <div class="container-fluid">
+                <img style="width: 15%;" src="{% static 'images/admin/inner_peace_logo.png' %}" alt="">
+                </button>
+                <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item px-3">
+                            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item px-3">
+                            <a class="nav-link text-white" href="#">Destinations</a>
+                        </li>
+                        <li class="nav-item px-3">
+                            <a class="nav-link text-white" href="#">About</a>
+                        </li>
+                        <li class="nav-item px-3">
+                            <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Contact
+                                us</a>
+                        </li>
+                        <li class="nav-item px-3">
+                            <a class="nav-link disabled  text-white" href="#" tabindex="-1"
+                                aria-disabled="true">Community</a>
+                        </li>
+                        <button class="btn  rounded-pill text-success fw-bolder px-3" type="submit"
+                            style=" background-color: #DBF056;">Book an event</button>
+                    </ul>
+                </div> -->
+
+            </div>
+        </nav>
+    </section>
+
+    <section class="banner-sec">
+        <h1 class="text-white fw-bolder">Create Admin</h1>
+    </section>
+
+    <!-- FORM  -->
+
+    <section>
+        <div class="row  register-sec ">
+            <div class="col regiter-form bg-white px-4  py-4 rounded shadow-lg ">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <img style="width: 100%;" src="{% static 'images/admin/innerpeace_signup_register_img.png' %}" alt="">
+
+                    </div>
+                    <div class="col-lg-7 px-3">
+                        <h3 class="fw-bolder px-1 py-3 mb-5">Create an account to get started</h3>
+                        <div class="row row1">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6 ">
+                                        <label for="username" class="form-label">username</label>
+                                        {{ user_form.username }}
+        
+                                        <!-- <label for="username" class="form-label">Phone Number</label> -->
+        
+                                        <label for="password" class="form-label  ">Create password</label>
+                                        <div class="input-group">
+                                           {{ user_form.password }}
+                                        </div>
+        
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="username" class="form-label">Email</label>
+                                        {{ user_form.email }}
+        
+                                        <label for="password" class="form-label  ">Confirm password</label>
+                                         {{ user_form.password_confirm }}
+                                    </div>
+                                </div>
+
+                                <div class="d-grid mt-5 mb-4">
+                                    <button type="submit" class="btn btn-primary  border-0 in-btn">SIGN UP</button><br><br>
+                                    <a href="{% url 'admin_dashboard' %}">Back to dashboard</a>
+                                </div>
+                            </form>
+                            <!-- <div>
+                                <h6>Already have an account? &nbsp;&nbsp;&nbsp;<button type="submit"
+                                        class=" in-btn border-0 btn btn-primary px-4">Login</button></h6>
+                            </div> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<!-- FOOTER -->
+
+<section>
+    <div class="footer">
+
+
+        <footer class="text-center text-lg-start text-white">
+            <div class="container p-4">
+                <div class="row my-4">
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0 text-lg-start border-right-white">
+
+                        <div class=" shadow-1-strong d-flex  mb-4 mx-auto">
+                            <img src="{% static 'images/admin/inner_peace_logo.png' %}" style="width: 30%" alt="" loading="lazy">
+                        </div>
+
+                        <h6>Guiding Excellence, Transforming <br> Futures</h6>
+                        <button class="btn bg-transparent text-white fw-bolder footer-btn py-5">
+                            <img src="{% static 'images/admin/icon.png' %}" alt="" style="width: 23%"> &nbsp;Get In Touch
+                        </button>
+                        <h6>Copyright © 2024 Innerpece. All Rights Reserved</h6>
+                    </div>
+                    <!-- <div class="vr"></div> -->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0 border-right-white ">
+
+                        <div>
+                            <h5 class=" fw-bolder  ">Useful Links </h5>
+                            <img style="width: 50%;" src="{% static 'images/admin/innerpeace_footer_arrow.png' %}" alt="">
+                        </div>
+
+
+                        <button class="btn bg-transparent text-white  text-start footer-btn">
+                            <img src="{% static 'images/admin/innerpeace_footer_ icon.png' %}" alt="" style="width: 6%;"> &nbsp;Home
+                        </button>
+
+
+                        <button class="btn bg-transparent text-white  text-start footer-btn">
+                            <img src="{% static 'images/admin/innerpeace_footer_ icon.png' %}" alt="" style="width: 6%"> &nbsp;Destinations
+                        </button>
+
+
+                        <button class="btn bg-transparent text-white  text-start footer-btn">
+                            <img src="{% static 'images/admin/innerpeace_footer_ icon.png' %}" alt="" style="width: 6%"> &nbsp;Tour
+                        </button>
+
+
+                        <button class="btn bg-transparent text-white text-start footer-btn">
+                            <img src="{% static 'images/admin/innerpeace_footer_ icon.png' %}" alt="" style="width: 6%"> &nbsp;Shop
+                        </button>
+
+
+                        <button class="btn bg-transparent text-white  text-start footer-btn">
+                            <img src="{% static 'images/admin/innerpeace_footer_ icon.png' %}" alt="" style="width: 6%"> &nbsp;Blog
+                        </button>
+
+
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h4>Get In Touch With Us</h5>
+                            <img style="width: 50%;" src="{% static 'images/admin/innerpeace_footer_arrow.png' %}" alt="">
+                            <h6 class="lh-9">Lorem ipsum dolor sit amet consectetur. Fames a non accumsan.</h6>
+                            <h5>(308) 555-0121</h6>
+                                <h5>debbie.baker@example.com</h6>
+                                    <h6>Get news & updates</h6>
+                                    <hr>
+                                    <h6>Our expertise, as well as our passion for web design, sets us apart from
+                                        other agencies.</h6>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+
+    </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% comment %} {% extends 'edit_profile.html' %} {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>Django App</title>
+</head>
+<body>
+<header>
+    {% if user.is_authenticated %}
+    <div class="user-info">
+        <img src="{% if user.userprofile.profile_image %}{{ user.userprofile.profile_image.url }}{% else %}{% static 'images/Default-profile.jpg' %}{% endif %}" alt="Profile Image" class="profile-image">
+        <span>Welcome, {{ user.username }}</span>
+    </div>
+    {% endif %}
+</header>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<h1>user dashboard</h1>
+<a href="{% url 'edit_profile' %}">Edit my profile</a><br><br>
+<a href="{% url 'user_tour_list' %}">Tour List</a><br><br>
+<a href="{% url 'logout' %}">logout</a>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tour List</title>
+</head>
+<body>
+    <h1>Tour List</h1>
+    {{ user.username }}
+    {{ user.is_authenticated}}
+    {{ user.edit_access}}
+
+    {% comment %} {% if {{ user.edit_access}} == 'yes' %}
+    <ul>
+        {% for tour in tours %}
+            <li>
+                {{ tour.title }} - <a href="{% url 'update_tour' tour.pk %}">Edit</a> - 
+                <a href="{% url 'delete_tour' tour.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <ul>
+        {% for tour in tours %}
+            <li>
+                {{ tour.title }} - <a href="{% url 'user_tour_full_view' tour.pk %}">View</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endcomment %}
+    <a href="{% url 'admin_dashboard' %}">Back to dashboard</a>
+</body>
+</html>

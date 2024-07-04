@@ -1,0 +1,18 @@
+<!-- create_tour.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Tour</title>
+</head>
+<body>
+    <h1>Create Tour</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label for="photos">Photos:</label>
+        <input type="file" name="photos" multiple>
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'tour_list' %}">Back to Tour List</a>
+</body>
+</html>

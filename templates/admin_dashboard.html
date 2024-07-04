@@ -1,0 +1,42 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Django App</title>
+</head>
+<body>
+<header>
+    {% if user.is_authenticated %}
+    <div class="user-info">
+        <img src="{% if user.userprofile.profile_image %}{{ user.userprofile.profile_image.url }}{% else %}{% static 'images/Default-profile.jpg' %}{% endif %}" alt="Profile Image" class="profile-image">
+        <span>Welcome, {{ user.username }}</span>
+    </div>
+    {% endif %}
+</header>
+<main>
+    {% block content %}
+    <h2>Admin Dashboard</h2>
+    <p>Welcome, Admin!</p>
+    {% for i in date_graph %}
+    <li>{{i}}</li>
+    {% endfor %}
+    <a href="{% url 'admin_user_crud' %}">Manage Users</a><br><br>
+    <a href="{% url 'edit_profile' %}">Edit my profile</a><br><br>
+    <a href="{% url 'create_tour' %}">Add Tour</a><br><br>
+    <a href="{% url 'tour_list' %}">Tour List ({{ cou }})</a><br><br>
+    <a href="{% url 'logout' %}">logout</a>
+    <div id="plot_div"></div>
+    {% endblock %}
+</main>
+<script>
+    // Load Plotly plot from JSON data
+    var plot_data = {{ plot_div|safe }};
+    Plotly.newPlot('plot_div', plot_data.data, plot_data.layout);
+</script>
+</body>
+</html>

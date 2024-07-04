@@ -1,0 +1,45 @@
+body{
+    font-family: 'Poppins' !important;
+    overflow-x: hidden;
+}
+.navbar{
+    background-color: #000;
+}
+.banner-sec{
+
+        background-image: url("/static/images/admin/innerpeace_signupe_banner.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        text-align: center;
+  
+        padding-top: 10%;
+        padding-bottom: 10%;
+    
+}
+.register-sec{
+
+    background-color: #00000005;
+     padding-top: 10%;
+     padding-bottom: 10%;
+     padding-left: 20%;
+     padding-right: 20%;
+}
+.footer{
+    background-color: #0F5B92;
+    
+  
+  }
+  .footer-btn{
+      width: 50% !important;
+  }
+  .in-btn{
+    background-color:  #0F5B92 !important;
+    
+}
+
+
+.row1{
+    display: flex!important;
+    flex-direction: row!important;
+    justify-content:space-between!important;
+}
